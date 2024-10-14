@@ -1,0 +1,16 @@
+{
+    "projectId": "project_id",
+    "instanceId": "instance_id",
+    "user": "root",
+    "database": "database_id",
+    "secretId": "",
+    "password": "password",
+    "sourceVersion": "10",
+    "upgradeVersion": "14",
+    "machineType": "db-perf-optimized-N-4",
+    "runAssessment": "Yes",
+    "cloneSqlInstance": "Yes",
+    "executeAlterOidScript": "Yes",
+    "enterpriseUpgrade": "Yes",
+    "enterprisePlusUpgrade": "Yes"
+}

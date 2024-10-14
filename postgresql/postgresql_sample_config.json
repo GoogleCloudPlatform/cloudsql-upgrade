@@ -1,0 +1,16 @@
+{
+    "projectId": "",
+    "instanceId": "",
+    "user": "",
+    "database": "",
+    "secretId": "",
+    "password": "",
+    "sourceVersion": "",
+    "upgradeVersion": "",
+    "machineType": "",
+    "runAssessment": "",
+    "cloneSqlInstance": "",
+    "executeAlterOidScript": "",
+    "enterpriseUpgrade": "",
+    "enterprisePlusUpgrade": ""
+}

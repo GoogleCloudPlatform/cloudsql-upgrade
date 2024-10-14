@@ -1,0 +1,16 @@
+{
+    "projectId": "",
+    "instanceId": "",
+    "user": "",
+    "secretId": "",
+    "password": "",
+    "machineType": "",
+    "runAssessment": "",
+    "utilityChecker": "",
+    "cloneSqlInstance": "",
+    "enterpriseUpgrade": "",
+    "enterprisePlusUpgrade": "",
+    "transactionalDataDictionaryScript": "",
+    "databaseFlagScript": "",
+    "grantPermissionsScript": ""
+}

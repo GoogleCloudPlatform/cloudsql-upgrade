@@ -1,0 +1,16 @@
+{
+    "projectId": "project_id",
+    "instanceId": "instance_id",
+    "user": "root",
+    "secretId": "",
+    "password": "password",
+    "machineType": "db-perf-optimized-N-4",
+    "runAssessment": "Yes",
+    "utilityChecker": "Yes",
+    "cloneSqlInstance": "Yes",
+    "enterpriseUpgrade": "Yes",
+    "enterprisePlusUpgrade": "Yes",
+    "transactionalDataDictionaryScript": "Yes",
+    "databaseFlagScript": "Yes",
+    "grantPermissionsScript": "Yes"
+}
