@@ -1,4 +1,0 @@
-*.linux_x64_v2 filter=lfs diff=lfs merge=lfs -text
-*.linux_x64 filter=lfs diff=lfs merge=lfs -text
-MAC_binaries_mysql_cloudsql_upgrade filter=lfs diff=lfs merge=lfs -text
-MAC_binaries_postgresql_cloudsql_upgrade filter=lfs diff=lfs merge=lfs -text
