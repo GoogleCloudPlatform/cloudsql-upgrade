@@ -81,6 +81,7 @@ issues. Once it passes all the sanity checks then Major Version Upgrade from MyS
 Architecture
 
 This tool will need below packages to be installed -
+This tool will need below packages to be installed -
 a. Python Packages
 i. wkhtmltopdf
 ii. mysql.connector
