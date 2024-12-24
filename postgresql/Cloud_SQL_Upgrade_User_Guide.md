@@ -1,6 +1,4 @@
----------------------------------------------------------------------------------------------------
-Contents
----------------------------------------------------------------------------------------------------
+#Contents
 
 1. Overview of Deployment Guide and Tool 4
 1.1 Objective of Deployment Guide 4
@@ -145,7 +143,7 @@ MVU and E+ Upgrade.
 be able to proceed with an upgrade
 SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER
 
-4. Installation Steps
+Installation Steps
 
 Debian -
 

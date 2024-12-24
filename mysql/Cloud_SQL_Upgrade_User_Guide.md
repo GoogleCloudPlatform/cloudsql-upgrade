@@ -1,6 +1,4 @@
----------------------------------------------------------------------------------------------------
-Contents
----------------------------------------------------------------------------------------------------
+#Contents
 
 1. Overview of Deployment Guide and Tool 4
 
@@ -143,7 +141,7 @@ VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT,
 TRIGGER, CREATE TABLESPACE on *.* to 'user'@'localhost'
 WITH GRANT OPTION;
 
-4. Installation Steps
+Installation Steps
 
 Debian -
 
