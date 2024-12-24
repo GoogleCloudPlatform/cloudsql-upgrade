@@ -1,17 +1,24 @@
+---------------------------------------------------------------------------------------------------
 Contents
+---------------------------------------------------------------------------------------------------
 
 1. Overview of Deployment Guide and Tool 4
+
 1.1 Objective of Deployment Guide 4
 1.2 About the MySQL Upgrade Tool 4
+
 2. Tool Functionality 6
+
 3. Prerequisites 7
 3.1 Important highlights of the Tool 7
 3.2 Complete information to run the tool 7
 3.3 User Input Requirements 8
+
 4. Installation Steps 8
 
 
 1. Overview of Deployment Guide and Tool
+
 1.1 Objective of Deployment Guide
 This document is created to help users run the Cloud SQL Upgrade Tool for MySQL MVU with
 E+ . It is a step-by-step guide to run the tool.
@@ -73,7 +80,7 @@ issues. Once it passes all the sanity checks then Major Version Upgrade from MyS
 
 Architecture
 
-1. This tool will need below packages to be installed.
+This tool will need below packages to be installed -
 a. Python Packages
 i. wkhtmltopdf
 ii. mysql.connector
@@ -82,13 +89,13 @@ iv. Jinja2
 v. google-cloud-secret-manager
 vi. matplotlib
 
-2. Input to the Framework are,
+Input to the Framework are - 
 a. MySQL DB Host
 b. Port
 c. Instance Name
 d. User id and password (Should have privileges to run mysql sanity checks)
 
-3. Output Generate by the tool are -
+Output Generate by the tool are -
 a. #1 PDF file - assessment report
 b. 3 scripts to fix the identified issues for DB flags, Data dictionary tables, Grants
 scripts.
@@ -102,8 +109,8 @@ scripts.
 being deployed has access to your MySQL instance.
 
 3.2 Complete information to run the tool - 
-1. The tool can run on any supported VM that conforms to prerequisites listed in Section
-3.1, and fulfills following prerequisites:
+1. The tool can run on any supported VM that conforms to prerequisites listed in Section 3.1, 
+and fulfills following prerequisites:
 1.1. Connectivity to MySQL instance
 1.2. DB user with privileges to perform sanity checks and upgrade.
 2. The tool initially requires < 200mb of space
@@ -136,7 +143,9 @@ TRIGGER, CREATE TABLESPACE on *.* to 'user'@'localhost'
 WITH GRANT OPTION;
 
 4. Installation Steps
+
 Debian -
+
 1. Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following
 command -
 
@@ -167,6 +176,7 @@ with no packages (or specify a solution)."
 Then run below commands to resolve.
 sudo apt --fix-broken install
 sudo apt-get install default-mysql-client
+
 For Mac -
 brew install mysql-client
 brew install mysql
