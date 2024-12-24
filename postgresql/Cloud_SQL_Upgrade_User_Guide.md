@@ -1,6 +1,4 @@
----------------------------------------------------------------------------------------------------
 Contents
----------------------------------------------------------------------------------------------------
 
 1. Overview of Deployment Guide and Tool 4
 1.1 Objective of Deployment Guide 4
@@ -89,7 +87,7 @@ issues. Once it passes all the sanity checks then Major Version Upgrade from Pos
 
 Architecture
 
-This tool will need below packages to be installed.
+1. This tool will need below packages to be installed.
 a. Python Packages
 i. wkhtmltopdf
 ii. psycopg2-binary
@@ -97,15 +95,13 @@ iii. Pdfkit
 iv. Jinja2
 v. google-cloud-secret-manager
 vi. matplotlib
-
-Input to the Framework are,
+2. Input to the Framework are,
 a. PostgreSQL DB Host
 b. Instance Name
 c. User id and password (Should have privileges to run postgresql sanity checks)
 d. Database
 e. Database version to which you want to upgrade ( 14 or 15 )
-
-Output Generate by the tool are,
+3. Output Generate by the tool are,
 a. #1 PDF file - assessment report
 b. 3 scripts to fix the identified issues for Extension compatibility before and after
 upgrade, Alter OID scripts.
@@ -146,9 +142,7 @@ be able to proceed with an upgrade
 SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER
 
 4. Installation Steps
-
 Debian -
-
 1. Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following
 command -
 
