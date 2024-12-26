@@ -11,12 +11,12 @@
 4. Installation Steps 8
 
 
-#### 1. Overview of Deployment Guide and Tool
+## 1. Overview of Deployment Guide and Tool
 
-##### 1.1 Objective of Deployment Guide
+### 1.1 Objective of Deployment Guide
 This document is created to help users run the Cloud SQL Upgrade Tool for PostgreSQL MVU with E+ . It is a step-by-step guide to run the tool.
 
-##### 1.2 About the PostgreSQL Upgrade Tool
+### 1.2 About the PostgreSQL Upgrade Tool
 This tool is developed to enable automated assessment and upgrades of PostgreSQL databases for PostgreSQL 9.6, 10, 11, 12 to 14, 15 or above with Enterprise edition to Enterprise Plus.
 
 The approach here is to do In-place major version upgrade with automated assessment that
@@ -33,7 +33,7 @@ evaluate the compatibility, data integrity for upgrading PostgreSQL 9.6, 10, 11,
 The is a combination of Python Scripts and gcloud commands that runs sanity checks on
 PostgreSQL database and upgrades PostgreSQL 9.6, 10, 11, 12 instances to 14 or 15 version.
 
-###### Following are the sanity checks that are being performed:
+### Following are the sanity checks that are being performed:
 
 * Extension Compatibility Check - Most extensions work on the upgraded database
 major version, but some of them can hinder MVU upgrade. Check installation of
@@ -75,10 +75,10 @@ identifiers before proceeding with the upgrade.
 * Tables with Object Identifiers Check (Not for PostgreSQL 12) - Usage of 'oid' in all databases within PostgreSQL instance will give following exception during upgrade -
 “Please remove the following usages of tables with OIDs before attempting an upgrade: (database: db_name, relation: rel_name).” Make sure to remove/alter tables with OIDs before proceeding with the upgrade.
 
-#### 2. Tool Functionality
+## 2. Tool Functionality
 The CloudSQL upgrade tool is built to perform sanity checks on the PostgreSQL databases and generate reports with detected problems along with automated scripts to fix some of the issues. Once it passes all the sanity checks then Major Version Upgrade from PostgreSQL 9.6, 10, 11, 12 to 14 and 15 versions will be carried out followed by Enterprise plus upgrade.
 
-###### This tool will need below packages to be installed.
+### This tool will need below packages to be installed.
 
 Python Packages - 
 
@@ -105,14 +105,14 @@ Output Generate by the tool are -
 * 3 scripts to fix the identified issues for Extension compatibility before and after
 upgrade, Alter OID scripts.
 
-#### 3. Prerequisites
+## 3. Prerequisites
 
-##### 3.1 Important highlights of the Tool
+### 3.1 Important highlights of the Tool
 * The tool runs on the following OS versions Debian 11, MacOS.
 * Reach out to your Google account teams for access to the binary file
 * To ensure that the tool can run sanity checks for you, verify that the server where it is being deployed has access to your PostgreSQL instance.
 
-##### 3.2 Complete information to run the tool
+### 3.2 Complete information to run the tool
 
 * The tool can run on any supported VM that conforms to prerequisites listed in Section 3.1, and fulfills following prerequisites:
 1.1. Connectivity to PostgreSQL instance
@@ -130,7 +130,7 @@ upgrade, Alter OID scripts.
 for the tables with OID (Not for PostgreSQL 12):
 ./storage/scripts/beforeupgrade_alter_table_with_oid
 
-##### 3.3 User Input Requirements
+### 3.3 User Input Requirements
 
 The tool needs the below permissions to run the code and generate the PDF report - 
 * PostgreSQL admin user to run sanity checks on the database and to execute MVU and E+ Upgrade.
@@ -138,9 +138,7 @@ The tool needs the below permissions to run the code and generate the PDF report
 be able to proceed with an upgrade
 SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER
 
-#### 4. Installation Steps
-
-###### Debian -
+## 4. Installation Steps
 
 1.  Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following command -
 

@@ -15,7 +15,7 @@ limitations under the License. -->
 # Overview 
 
 
-##### New Cloud SQL upgrade tool for MySQL & PostgreSQL major versions and Enterprise Plus
+### New Cloud SQL upgrade tool for MySQL & PostgreSQL major versions and Enterprise Plus
 
 
 Upgrading to a newer major version of a database can be complex, time-consuming and error-prone. At Google Cloud, we want to make sure that your database upgrades go smoothly, without compromising the security or availability of your applications. We also aim to minimize the risks and disruptions associated with upgrades, to save you time and resources.
