@@ -135,11 +135,11 @@ brew install wkhtmltopdf
 * sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 * sudo dpkg -i mysql-shell_8.0.31-1debian11_amd64.deb
 
-Note: For other OS refer to this page.
+Note: For other OS refer to [this](https://dev.mysql.com/downloads/shell/) page .
 
 3. Download MySQL Client - Install MySQL Client using the following command -
 
-For linux -
+* For linux -
 sudo apt-get update
 sudo apt-get install default-mysql-client
 If encountered issue "E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution)."
@@ -147,7 +147,7 @@ Then run below commands to resolve.
 sudo apt --fix-broken install
 sudo apt-get install default-mysql-client
 
-For Mac -
+* For Mac -
 brew install mysql-client
 brew install mysql
 
