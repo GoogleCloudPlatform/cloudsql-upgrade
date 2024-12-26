@@ -118,8 +118,6 @@ CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CL
 
 ## 4. Installation Steps
 
-###### Debian -
-
 1. Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following command -
 
 ```
@@ -189,71 +187,41 @@ https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy#install-prox
 "projectId": "",
 "instanceId": "",
 "user": "",
-
 "secretId": "",
-
 "password": "",
-
 "machineType": "",
-
 "runAssessment": "",
-
 "utilityChecker": "",
-
 "cloneSqlInstance": "",
-
 "replicaUpgrade": "",
-
 "enterpriseUpgrade": "",
-
 "enterprisePlusUpgrade": "",
-
 "transactionalDataDictionaryScript": "",
-
 "databaseFlagScript": "",
-
 "grantPermissionsScript": ""
-
 }
 
 Note: Some of parameter definition are as follows:
-
 projectId: Project ID where Cloud SQL instance is hosted.
-
 instanceId: Instance ID of Cloud SQL instance.
-
 user: database user with required permissions
-
 secretId: ID of file in Secret Manager where database user password is stored.
-
 Either provide the user password in secret manager(enter the secretID) or as a plain text in Password variable. Tool will pick either of these.
-
 password: database user password(in plain text). If you have provided secretId above then leave this blank.
-
 machineType: Machine type of Cloud SQL Enterprise Plus Edition. Select required machine type from below link.
 Ex: db-perf-optimized-N-2
-
 runAssessment: [Yes/No], if choosen "Yes", will run assessment on the instance and also generate Grant Script.
-
 utilityChecker: [Yes/No], if choosen "Yes", will run Mysql Utility Checker on the instance, else would run checks mentioned in Mysql Utility Checker independently on the instance. This is recommended in case where instance has very large no. of databases and tables(>512,000). Refer to the limitations here.
-
 cloneSqlInstance: [Yes/No], if choosen "Yes", will make a clone of current instance and perform upgrade on that instance, else perform upgrade on current instance.
-
 replicaUpgrade: [Yes/No], if choosen "Yes", will upgrade all the replicas of the primary instance along with it, else will only upgrade the primary instance.
-
 enterpriseUpgrade: [Yes/No], if choosen "Yes", will perform a Major Version Upgrade.
-
 enterprisePlusUpgrade: [Yes/No], if choosen "Yes", will perform an upgrade to Enterprise Plus.
-
 transactionalDataDictionaryScript: [Yes/No], if choosen "Yes", the same named user table and system table, will be renamed as tablename_upgrade.
-
 databaseFlagScript: [Yes/No], if choosen "Yes", script will check and edit the flags, if modifiable.
-
 grantPermissionsScript: [Yes/No], if choosen "Yes", will grant the same permission to the Cloud SQL user, which was before Major Version Upgrade.
 
 Choose any machine type from below list :
 https://cloud.google.com/sql/docs/mysql/instance-settings#machine-type-2ndgen
-
 ```
 
 9. To Execute the upgrade script follow steps below -
