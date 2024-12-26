@@ -160,49 +160,73 @@ https://cloud.google.com/sql/docs/postgres/connect-instance-auth-proxy#install-p
 5. Populate the config file: Add the respective values to the config.json file.
 
 {
+
 "projectId": "",
+
 "instanceId": "",
 
 "user": "",
+
 "database": "",
+
 "secretId": "",
+
 "password": "",
+
 "sourceVersion": "",
+
 "upgradeVersion": "",
+
 "machineType": "",
+
 "runAssessment": "",
+
 "cloneSqlInstance": "",
+
 "executeAlterOidScript": "",
+
 "enterpriseUpgrade": "",
+
 "enterprisePlusUpgrade": ""
+
 }
 
+
 Note: Some of parameter definition are as follows:
+
 projectId: Project ID where CloudSQL instance is hosted.
+
 instanceId: Instance ID of CloudSQL instance.
+
 user: database user with required permissions
+
 database : CloudSQL instance database for connecting to
+
 secretId: ID of file in Secret Manager where database user password is stored.
-Either provide the user password in secret manager(enter the secretID) or as a
-plain text in Password variable. Tool will pick either of these.
-Password: database user password(in plain text). If you have provided secretId
-above then leave this blank.
-sourceVersion : Version of current PostgresSQL instance(9.6 or 10 or 11).
-upgradeVersion : PostgreSQL version to upgrade CloudSQL instance to (14 or 15)
-machineType: Machine type of CloudSQL Enterprise Plus Edition. Select required
-machine type from below image.
+
+Either provide the user password in secret manager(enter the secretID) or as a plain text in Password variable. Tool will pick either of these.
+
+Password: database user password(in plain text). If you have provided secretId above then leave this blank.
+
+sourceVersion : Version of current PostgresSQL instance(9.6 or 10 or 11 or 12).
+
+upgradeVersion : PostgreSQL version to upgrade CloudSQL instance to (14 or 15).
+
+machineType: Machine type of CloudSQL Enterprise Plus Edition.
+ 
+Select required machine type from below image.
 Ex: db-perf-optimized-N-2
-runAssessment: [Yes/No], if choosen "Yes", will run assessment on the instance
-and also generate Grant Script
-cloneSqlInstance: [Yes/No], if choosen "Yes", will make a clone of current
-instance and perform upgrade on that instance, else perform upgrade on current
-instance.
-executeAlterOidScript: [Yes/No], if choosen "Yes", will run the script that
-will alter the tables with OID. (Select "No" for PostgreSQL 12)
-enterpriseUpgrade: [Yes/No], if choosen "Yes", will perform a Major Version
-Upgrade.
-enterprisePlusUpgrade: [Yes/No], if choosen "Yes", will perform an upgrade to
-Enterprise Plus.
+
+runAssessment: [Yes/No], if choosen "Yes", will run assessment on the instance and also generate Grant Script.
+
+cloneSqlInstance: [Yes/No], if choosen "Yes", will make a clone of current instance and perform upgrade on that instance, else perform upgrade on current instance.
+
+executeAlterOidScript: [Yes/No], if choosen "Yes", will run the script that will alter the tables with OID. (Select "No" for PostgreSQL 12)
+
+enterpriseUpgrade: [Yes/No], if choosen "Yes", will perform a Major Version Upgrade.
+
+enterprisePlusUpgrade: [Yes/No], if choosen "Yes", will perform an upgrade to Enterprise Plus.
+
 
 Choose any machine type from below list :
 https://cloud.google.com/sql/docs/postgres/instance-settings#:~:text=db%2Dperf%2Doptimized%2DN%2D4
