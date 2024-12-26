@@ -1,14 +1,19 @@
 # Contents
 
-1. Overview of Deployment Guide and Tool 4
-1.1 Objective of Deployment Guide 4
-1.2 About the PostgreSQL Upgrade Tool 4
-2. Tool Functionality 6
-3. Prerequisites 7
-3.1 Important highlights of the Tool 7
-3.2 Complete information to run the tool 7
-3.3 User Input Requirements 8
-4. Installation Steps 8
+1. Overview of Deployment Guide and Tool
+
+1.1 Objective of Deployment Guide
+1.2 About the PostgreSQL Upgrade Tool
+
+2. Tool Functionality
+
+3. Prerequisites
+
+3.1 Important highlights of the Tool
+3.2 Complete information to run the tool
+3.3 User Input Requirements
+
+4. Installation Steps
 
 
 ## 1. Overview of Deployment Guide and Tool
@@ -35,47 +40,24 @@ PostgreSQL database and upgrades PostgreSQL 9.6, 10, 11, 12 instances to 14 or 1
 
 ### Following are the sanity checks that are being performed:
 
-* Extension Compatibility Check - Most extensions work on the upgraded database
-major version, but some of them can hinder MVU upgrade. Check installation of
-extensions in each and every Cloud SQL Databases, check the extension feasibility
-with installed version to that of default version. Drop any extensions that are no longer
-supported in the target version.
+* Extension Compatibility Check - Most extensions work on the upgraded database major version, but some of them can hinder MVU upgrade. Check installation of extensions in each and every Cloud SQL Databases, check the extension feasibility with installed version to that of default version. Drop any extensions that are no longer supported in the target version.
 
-* LC_COLLATE compatibility Check- The character set for each database must be
-en_US.UTF8. If the LC_COLLATE value for the template and postgresql databases isn't
-en_US.UTF8, then the major version upgrade fails. If any database has a character set
-other than en_US.UTF8, then change the LC_COLLATE value to en_US.UTF8 before
-performing the upgrade.
+* LC_COLLATE compatibility Check- The character set for each database must be en_US.UTF8. If the LC_COLLATE value for the template and postgresql databases isn't en_US.UTF8, then the major version upgrade fails. If any database has a character set other than en_US.UTF8, then change the LC_COLLATE value to en_US.UTF8 before performing the upgrade.
 
-* Cloud SQL with active replication slot publisher Check - Cloud SQL for
-PostgreSQL does not support cross-version replication, which means that upgrading
-the primary instance while the instance is replicating to the read replicas is not
-possible. Before upgrading, either disable replication for each read replica or delete
-the read replicas. If Cloud SQL is the logical replication source, disable pg_logical
-extension replication and enable it again after the upgrade.
+* Cloud SQL with active replication slot publisher Check - Cloud SQL for PostgreSQL does not support cross-version replication, which means that upgrading the primary instance while the instance is replicating to the read replicas is not possible. Before upgrading, either disable replication for each read replica or delete the read replicas. If Cloud SQL is the logical replication source, disable pg_logical extension replication and enable it again after the upgrade.
 
-* Unsupported/unknown Data Types - PostgreSQL Check - The PostgreSQL
-upgrade utility, pg_upgrade, does not support upgrading databases that contain table
-columns using the reg* OID-referencing system data types. Therefore, it is suggested
-to remove all uses of reg* data types, except for regclass, regrole, and regtype, before
-attempting an upgrade.
+* Unsupported/unknown Data Types - PostgreSQL Check - The PostgreSQL upgrade utility, pg_upgrade, does not support upgrading databases that contain table columns using the reg* OID-referencing system data types. Therefore, it is suggested to remove all uses of reg* data types, except for regclass, regrole, and regtype, before attempting an upgrade.
 
-* Max Locks per Transaction Check - The recommended max_connections value for
-the upgrade is (number of tables) < (max_connections)*(max_locks_per_transaction).
-However, if there are problems because of a high number of tables, the
-recommendation is to change this value to a suitable value based on the number of
-tables.
+* Max Locks per Transaction Check - The recommended max_connections value for the upgrade is (number of tables) < (max_connections)*(max_locks_per_transaction).
+However, if there are problems because of a high number of tables, the recommendation is to change this value to a suitable value based on the number of tables.
 
-* SQL Identifier Detection Check - Usage of 'sql_identifier' in all databases within
-PostgreSQL instance will give following exception during upgrade - “Please remove
-the following usages of 'sql_identifier' data types before attempting an upgrade:
-(database: db_name, relation: rel_name, attribute: attr_name).“ Remove these
-identifiers before proceeding with the upgrade.
+* SQL Identifier Detection Check - Usage of 'sql_identifier' in all databases within PostgreSQL instance will give following exception during upgrade - “Please remove the following usages of 'sql_identifier' data types before attempting an upgrade: (database: db_name, relation: rel_name, attribute: attr_name).“ Remove these identifiers before proceeding with the upgrade.
 
 * Tables with Object Identifiers Check (Not for PostgreSQL 12) - Usage of 'oid' in all databases within PostgreSQL instance will give following exception during upgrade -
 “Please remove the following usages of tables with OIDs before attempting an upgrade: (database: db_name, relation: rel_name).” Make sure to remove/alter tables with OIDs before proceeding with the upgrade.
 
 ## 2. Tool Functionality
+
 The CloudSQL upgrade tool is built to perform sanity checks on the PostgreSQL databases and generate reports with detected problems along with automated scripts to fix some of the issues. Once it passes all the sanity checks then Major Version Upgrade from PostgreSQL 9.6, 10, 11, 12 to 14 and 15 versions will be carried out followed by Enterprise plus upgrade.
 
 ### This tool will need below packages to be installed.
@@ -118,16 +100,17 @@ upgrade, Alter OID scripts.
 1.1. Connectivity to PostgreSQL instance
 1.2. DB user with privileges to perform sanity checks and upgrade.
 
-* The tool initially requires < 200mb of space
+* The tool initially requires < 200mb of space.
+
 * This tool has been tested on the PostgreSQL 9.6, 10, 11, 12 versions.
+
 * This tool runs on the following Operating systems:
 4.1. Debian 11 and above
 4.2. MacOS
 
 * After a successful tool execution, a PDF report will be generated at the location: ./storage/reports/postgresql-report.pdf.
 
-* After successful tool execution, a script will be generated that consists of alter queries
-for the tables with OID (Not for PostgreSQL 12):
+* After successful tool execution, a script will be generated that consists of alter queries for the tables with OID (Not for PostgreSQL 12):
 ./storage/scripts/beforeupgrade_alter_table_with_oid
 
 ### 3.3 User Input Requirements
@@ -214,7 +197,7 @@ upgradeVersion : PostgreSQL version to upgrade CloudSQL instance to (14 or 15).
 
 machineType: Machine type of CloudSQL Enterprise Plus Edition.
  
-Select required machine type from below image.
+Select required machine type from below link.
 Ex: db-perf-optimized-N-2
 
 runAssessment: [Yes/No], if choosen "Yes", will run assessment on the instance and also generate Grant Script.
@@ -290,8 +273,7 @@ cloudsql-testing:us-central1:postgres-test-clone"
 6.10. Go back to terminal and provide your Cloud SQL Auth Proxy Host and Port:
 
 Please provide your Cloud SQL Auth Proxy Host: 127.0.0.1
-Note: By default the host is 127.0.0.1 . Incase if it is different provide
-appropriately.
+Note: By default the host is 127.0.0.1 . Incase if it is different provide appropriately.
 Please provide your Cloud SQL Auth Proxy Port: 5432
 Note: By default the host is 127.0.0.1 and port is 5432. Incase if it is different provide appropriately.
 
