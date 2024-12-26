@@ -41,7 +41,7 @@ The Cloud SQL upgrade tool provides:
 https://storage.googleapis.com/gweb-cloudblog-publish/images/1-_Architecture_Rz3TUpk.max-1600x1600.png
 
 
-# Using the Cloud SQL upgrade tool 
+## Using the Cloud SQL upgrade tool 
 Upgrading an instance with the Cloud SQL upgrade tool is straightforward:
 
 1. Execute the binary file on a VM that has connectivity to the target Cloud SQL instance. This runs an upgrade assessment, generates reports along with automated scripts to fix identified issues, and creates a clone of the Cloud SQL instance.
