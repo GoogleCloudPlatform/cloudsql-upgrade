@@ -164,11 +164,9 @@ https://cloud.google.com/sql/docs/postgres/connect-instance-auth-proxy#install-p
 "projectId": "",
 
 "instanceId": "",
-
 "user": "",
 
 "database": "",
-
 "secretId": "",
 
 "password": "",
