@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-#Overview - 
+# Overview 
 
 
 New Cloud SQL upgrade tool for MySQL & PostgreSQL major versions and Enterprise Plus
@@ -25,23 +25,23 @@ As a fully-managed database service, Cloud SQL supports multiple major versions 
 It’s particularly useful for organizations that want to avoid extended support fees associated with Cloud SQL extended support for MySQL and PostgreSQL end-of-life versions, or that want to take advantage of the performance and availability features of Enterprise Plus editions.
 
 
-Key features 
+## Key features 
 The Cloud SQL upgrade tool provides: 
 
-Automated pre-upgrade assessment, where checks are curated based on recommendations available for MySQL and PostgreSQL upgrades, as well as from insights from real customer experiences.
+* Automated pre-upgrade assessment, where checks are curated based on recommendations available for MySQL and PostgreSQL upgrades, as well as from insights from real customer experiences.
 
-Detailed assessment reports
+* Detailed assessment reports
 
-Automated scripts to resolve issues
+* Automated scripts to resolve issues
 
-In-place major version and Enterprise Plus upgrades leveraging Cloud SQL’s in-place major version upgrade feature.
+* In-place major version and Enterprise Plus upgrades leveraging Cloud SQL’s in-place major version upgrade feature.
 
-You can visualize how these elements work together in the diagram below.
+* You can visualize how these elements work together in the diagram below.
 
 https://storage.googleapis.com/gweb-cloudblog-publish/images/1-_Architecture_Rz3TUpk.max-1600x1600.png
 
 
-Using the Cloud SQL upgrade tool 
+# Using the Cloud SQL upgrade tool 
 Upgrading an instance with the Cloud SQL upgrade tool is straightforward:
 
 1. Execute the binary file on a VM that has connectivity to the target Cloud SQL instance. This runs an upgrade assessment, generates reports along with automated scripts to fix identified issues, and creates a clone of the Cloud SQL instance.
