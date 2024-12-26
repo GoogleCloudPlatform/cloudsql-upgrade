@@ -2,19 +2,19 @@
 
 1. Overview of Deployment Guide and Tool
 
-1.1 Objective of Deployment Guide
+* 1.1 Objective of Deployment Guide
 
-1.2 About the MySQL Upgrade Tool
+* 1.2 About the MySQL Upgrade Tool
 
 2. Tool Functionality
 
 3. Prerequisites
 
-3.1 Important highlights of the Tool
+* 3.1 Important highlights of the Tool
 
-3.2 Complete information to run the tool
+* 3.2 Complete information to run the tool
 
-3.3 User Input Requirements
+* 3.3 User Input Requirements
 
 4. Installation Steps
 
