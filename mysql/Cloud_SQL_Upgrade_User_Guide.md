@@ -122,13 +122,13 @@ CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CL
 
 1. Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following command -
 
-* For linux -
-
+```
+For linux -
 sudo apt-get install wkhtmltopdf
 
-* For Mac -
-
+For Mac -
 brew install wkhtmltopdf
+```
 
 2. Download MySQL Shell - Execute the below command to install MySQL Shell for linux.
 
@@ -137,13 +137,13 @@ wget https://dev.mysql.com/get/Downloads/MySQL-Shell/mysql-shell_8.0.31-1debian1
 wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 sudo dpkg -i mysql-shell_8.0.31-1debian11_amd64.deb
-```
-
 Note: For other OS refer to [this](https://dev.mysql.com/downloads/shell/) page .
+```
 
 3. Download MySQL Client - Install MySQL Client using the following command -
 
-* For linux -
+```
+For linux -
 sudo apt-get update
 sudo apt-get install default-mysql-client
 If encountered issue "E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution)."
@@ -151,36 +151,43 @@ Then run below commands to resolve.
 sudo apt --fix-broken install
 sudo apt-get install default-mysql-client
 
-* For Mac -
+For Mac -
 brew install mysql-client
 brew install mysql
+```
 
 4. Download files: Download the binary and config file, using the gsutil command below -
 
+```
 gsutil -m cp -r gs://cloudsqlupgrade/binaries/mysql . && cd mysql
+```
 
 5. Setup gcloud auth login: To execute gcloud commands, setup the auth login and project_id -
 
+```
 gcloud auth login
 gcloud config set project <PROJECT_ID>
 gcloud auth application-default login
+```
 
 6. Download gcloud alpha component - Install gcloud alpha component using the following command -
 
+```
 gcloud components install alpha
+```
 
 7. Follow the steps to install proxy server to be able to connect Cloud SQL MySQL instance:
 
+```
 https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy#install-proxy
+```
 
 8. Populate the config file: Add the respective values to the config.json file.
 
+```
 {
-
 "projectId": "",
-
 "instanceId": "",
-
 "user": "",
 
 "secretId": "",
@@ -247,65 +254,87 @@ grantPermissionsScript: [Yes/No], if choosen "Yes", will grant the same permissi
 Choose any machine type from below list :
 https://cloud.google.com/sql/docs/mysql/instance-settings#machine-type-2ndgen
 
+```
+
 9. To Execute the upgrade script follow steps below -
 
 9.1. Add the execution permission to binary file:
 
+```
 chmod +x cloudsql_upgrade
+```
 
 9.2. Run the binary file:
 
+```
 ./cloudsql_upgrade
+```
 
 9.3. Verify logs generated at :
 
+```
 ./storage/logs/app.log
+```
 
 9.4. Run the following command to start the Cloud SQL Proxy Server
 
+```
 "Open a new session in the terminal and run the following command - "
 ./cloud-sql-proxy {connectionName}
 Note : Open a new terminal and execute the command given above and let the session run.
 Example command : "./cloud-sql-proxy adt-rani-testing:us-central1:mysql-5-7"
+```
 
 9.5. Go back to the first terminal and provide your Cloud SQL Auth Proxy Host:
 
+```
 Please provide your Cloud SQL Auth Proxy Host: 127.0.0.1
 Note: By default the host is 127.0.0.1 and port is 3306. Incase if it is different provide appropriately.
+```
 
 9.6. Provide your Cloud SQL Auth Proxy Port:
 
+```
 Please provide your Cloud SQL Auth Proxy Port: 3306
 Note: By default the host is 127.0.0.1 and port is 3306. Incase if it is different provide appropriately.
+```
 
 9.7. Please make sure all the problems are resolved, which are detected during sanity checks:
 
+```
 Prompt: "Please check and resolve if any problems detected during assessment"
 Confirm if all the issues are resolved and good to proceed with clone and upgrade?(yes/no) -
 
 Now the script will create a clone or not based on the input provided in the config file.
 Note : Creating a clone of the instance might take a few minutes.
+```
 
 9.8. As we will now use the cloned instance for further steps , go ahead and terminate the 2nd terminal which we used at step 9.4 for proxy connection to the main instance.
 
 9.9. Now create a new proxy session for the cloned instance.
 
+```
 Clone Done for mysql-5-7
 ************************************************************
 Open a new session in the terminal and run the following command -
 ./cloud-sql-proxy adt-rani-testing:us-central1:mysql-5-7-clone
 Note : Open a new terminal and execute the command given above and let the session run. Pick the cloned instance name from the output above.
 Example command : "./cloud-sql-proxy cloudsql-testing:us-central1:mysql-5-7-clone"
+```
 
 9.10. Go back to terminal and provide your Cloud SQL Auth Proxy Host and port:
 
+```
 Please provide your Cloud SQL Auth Proxy Host: 127.0.0.1
 Note: By default the host is 127.0.0.1 and port is 3306. Incase if it is different provide appropriately.
 Please provide your Cloud SQL Auth Proxy Port: 3306
 Note: By default the host is 127.0.0.1 and port is 3306. Incase if it is different provide appropriately.
+```
 
 9.11. Please verify if the clone and upgrade ran successfully or not.
 
 9.12. After the successful upgrade please make sure the instance is ready for Enterprise Plus upgrade
 
+```
 Confirm if the instance is ready for Enterprise Plus Upgrade?(yes/no) -
+```
