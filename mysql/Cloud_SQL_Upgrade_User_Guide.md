@@ -204,7 +204,7 @@ https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy#install-prox
 Note: Some of parameter definition are as follows:
 projectId: Project ID where Cloud SQL instance is hosted.
 instanceId: Instance ID of Cloud SQL instance.
-user: database user with required permissions
+user: database user with required permissions.
 secretId: ID of file in Secret Manager where database user password is stored.
 Either provide the user password in secret manager(enter the secretID) or as a plain text in Password variable. Tool will pick either of these.
 password: database user password(in plain text). If you have provided secretId above then leave this blank.

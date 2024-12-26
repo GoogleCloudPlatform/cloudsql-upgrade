@@ -125,142 +125,133 @@ SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER
 
 1.  Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following command -
 
+```
 sudo apt-get install wkhtmltopdf
+```
 
 2. Download files: Download the binary and config file, using the gsutil command below -
 
+```
 gsutil -m cp -r gs://cloudsqlupgrade/binaries/postgresql . && cd postgresql
+```
 
 3. Setup gcloud auth login: To execute gcloud commands, setup the auth login and project_id -
 
+```
 gcloud auth login
 gcloud config set project <PROJECT_ID>
 gcloud auth application-default login
+```
 
 4. Follow the steps to install proxy server to be able to connect Cloud SQL PostgreSQL instance:
-https://cloud.google.com/sql/docs/postgres/connect-instance-auth-proxy#install-proxy
 
+```
+https://cloud.google.com/sql/docs/postgres/connect-instance-auth-proxy#install-proxy
+```
 5. Populate the config file: Add the respective values to the config.json file.
 
+```
 {
-
 "projectId": "",
-
 "instanceId": "",
-
 "user": "",
-
 "database": "",
-
 "secretId": "",
-
 "password": "",
-
 "sourceVersion": "",
-
 "upgradeVersion": "",
-
 "machineType": "",
-
 "runAssessment": "",
-
 "cloneSqlInstance": "",
-
 "executeAlterOidScript": "",
-
 "enterpriseUpgrade": "",
-
 "enterprisePlusUpgrade": ""
-
 }
 
-
 Note: Some of parameter definition are as follows:
-
 projectId: Project ID where CloudSQL instance is hosted.
-
 instanceId: Instance ID of CloudSQL instance.
-
-user: database user with required permissions
-
-database : CloudSQL instance database for connecting to
-
+user: database user with required permissions.
+database : CloudSQL instance database for connecting to.
 secretId: ID of file in Secret Manager where database user password is stored.
-
 Either provide the user password in secret manager(enter the secretID) or as a plain text in Password variable. Tool will pick either of these.
-
 Password: database user password(in plain text). If you have provided secretId above then leave this blank.
-
 sourceVersion : Version of current PostgresSQL instance(9.6 or 10 or 11 or 12).
-
 upgradeVersion : PostgreSQL version to upgrade CloudSQL instance to (14 or 15).
-
 machineType: Machine type of CloudSQL Enterprise Plus Edition.
- 
 Select required machine type from below link.
 Ex: db-perf-optimized-N-2
-
 runAssessment: [Yes/No], if choosen "Yes", will run assessment on the instance and also generate Grant Script.
-
 cloneSqlInstance: [Yes/No], if choosen "Yes", will make a clone of current instance and perform upgrade on that instance, else perform upgrade on current instance.
-
 executeAlterOidScript: [Yes/No], if choosen "Yes", will run the script that will alter the tables with OID. (Select "No" for PostgreSQL 12)
-
 enterpriseUpgrade: [Yes/No], if choosen "Yes", will perform a Major Version Upgrade.
-
 enterprisePlusUpgrade: [Yes/No], if choosen "Yes", will perform an upgrade to Enterprise Plus.
-
 
 Choose any machine type from below list :
 https://cloud.google.com/sql/docs/postgres/instance-settings#:~:text=db%2Dperf%2Doptimized%2DN%2D4
+```
 
 6. To Execute the upgrade script follow steps below -
 6.1. Add the execution permission to binary file:
 
+```
 chmod +x cloudsql_upgrade
+```
 
 6.2. Run the binary file:
 
+```
 ./cloudsql_upgrade
-
 [INFO]
 Incase you get this warning while trying to run the binary -
 “MAC_binaries_postgresql_cloudsql_upgrade” cannot be opened because it is from an unidentified developer.
+```
 
 6.3. Verify logs generated at :
 
+```
 ./storage/logs/app.log
+```
 
 6.4. Run the following command to start the CloudSQL Proxy Server
 
+```
 "Open a new session in the terminal and run the following command - "
 ./cloud-sql-proxy {connectionName}
 Note : Open a new terminal and execute the command given above and let the session run.
 Example command : "./cloud-sql-proxy
 cloudsql-testing:us-central1:postgres-test"
+```
 
 6.5. Go back to the first terminal and provide your Cloud SQL Auth Proxy Host:
 
+```
 Please provide your Cloud SQL Auth Proxy Host: 127.0.0.1
 Note: By default the host is 127.0.0.1. Incase if it is different provide appropriately.
+```
 
 6.6. Provide your Cloud SQL Auth Proxy Port:
 
+```
 Please provide your Cloud SQL Auth Proxy Port: 5432
 Note: By default the port is 5432. Incase if it is different provide appropriately.
+```
 
 6.7. Please make sure all the problems are resolved, which are detected during sanity checks:
 
+```
 Prompt: "Please check and resolve if any problems detected during assessment"
 Confirm if all the issues are resolved and good to proceed with clone and upgrade?(yes/no) -
 
 Now the script will create a clone or not based on the input provided in the config file.
 Note : Creating a clone of the instance might take a few minutes.
+```
 
 6.8. As we will now use the cloned instance for further steps , go ahead and terminate the 2nd terminal which we used at step 6.4 for proxy connection to the main instance.
 
 6.9. Now create a new proxy session for the cloned instance.
 
+```
 Clone Done for postgres-test
 ************************************************************
 Open a new session in the terminal and run the following command -
@@ -269,13 +260,16 @@ Note : Open a new terminal and execute the command given above and let the
 session run. Pick the cloned instance name from the output above.
 Example command : "./cloud-sql-proxy
 cloudsql-testing:us-central1:postgres-test-clone"
+```
 
 6.10. Go back to terminal and provide your Cloud SQL Auth Proxy Host and Port:
 
+```
 Please provide your Cloud SQL Auth Proxy Host: 127.0.0.1
 Note: By default the host is 127.0.0.1 . Incase if it is different provide appropriately.
 Please provide your Cloud SQL Auth Proxy Port: 5432
 Note: By default the host is 127.0.0.1 and port is 5432. Incase if it is different provide appropriately.
+```
 
 6.11. Please verify if the clone ran successfully or not.
 
@@ -285,4 +279,6 @@ Note: By default the host is 127.0.0.1 and port is 5432. Incase if it is differe
 
 6.14. After the successful upgrade please make sure the instance is ready for Enterprise Plus upgrade
 
+```
 Confirm if the instance is ready for Enterprise Plus Upgrade?(yes/no) -
+```
