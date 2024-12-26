@@ -123,17 +123,21 @@ CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CL
 1. Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following command -
 
 * For linux -
+
 sudo apt-get install wkhtmltopdf
 
 * For Mac -
+
 brew install wkhtmltopdf
 
 2. Download MySQL Shell - Execute the below command to install MySQL Shell for linux.
 
-* wget https://dev.mysql.com/get/Downloads/MySQL-Shell/mysql-shell_8.0.31-1debian11_amd64.deb
-* wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-* sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-* sudo dpkg -i mysql-shell_8.0.31-1debian11_amd64.deb
+```
+wget https://dev.mysql.com/get/Downloads/MySQL-Shell/mysql-shell_8.0.31-1debian11_amd64.deb
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+sudo dpkg -i mysql-shell_8.0.31-1debian11_amd64.deb
+```
 
 Note: For other OS refer to [this](https://dev.mysql.com/downloads/shell/) page .
 
