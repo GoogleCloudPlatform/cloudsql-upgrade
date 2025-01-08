@@ -44,16 +44,16 @@ https://storage.googleapis.com/gweb-cloudblog-publish/images/1-_Architecture_Rz3
 ## Using the Cloud SQL upgrade tool 
 Upgrading an instance with the Cloud SQL upgrade tool is straightforward:
 
-1. Execute the binary file on a VM that has connectivity to the target Cloud SQL instance. This runs an upgrade assessment, generates reports along with automated scripts to fix identified issues, and creates a clone of the Cloud SQL instance.
+1. Clone the repo and navigate the /path to locate the binary file
 
-2. Verify the assessment report and apply any necessary manual fixes on the cloned instance.
+2. Execute the binary file on a VM that has connectivity to the target Cloud SQL instance. This runs an upgrade assessment, generates reports along with automated scripts to fix identified issues, and creates a clone of the Cloud SQL instance.
 
-3. Re-execute the binary to ensure there are no pending issues.
+3. Verify the assessment report and apply any necessary manual fixes on the cloned instance.
 
-4. Once verified, confirm that you agree to continue with the in-place major version or Enterprise Plus upgrade.
+4. Re-execute the binary to ensure there are no pending issues.
 
-5. Run tests on the upgraded instance to verify that the application functions correctly. 
+5. Once verified, confirm that you agree to continue with the in-place major version or Enterprise Plus upgrade.
 
-6. Upon successful testing, execute automated fix scripts and any necessary manual fixes on the production instance, run the assessment, verify the report, and finally, initiate in-place major version upgrade. 
+6. Run tests on the upgraded instance to verify that the application functions correctly. 
 
-If you are interested in the tool,  reach out to your Google representative.
+7. Upon successful testing, execute automated fix scripts and any necessary manual fixes on the production instance, run the assessment, verify the report, and finally, initiate in-place major version upgrade. 

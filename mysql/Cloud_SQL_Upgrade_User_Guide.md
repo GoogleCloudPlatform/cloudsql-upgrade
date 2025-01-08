@@ -82,8 +82,7 @@ Output Generate by the tool are -
 
 ### 3.1 Important highlights of the Tool
 
-* The tool runs on the following OS versions Debian 11, MacOS.
-* Reach out to your Google account teams for access to the repo
+* The tool runs on the following OS versions Debian 11 & above, MacOS 15 & above.
 * To ensure that the tool can run sanity checks for you, verify that the server where it is being deployed has access to your MySQL instance.
 
 ### 3.2 Complete information to run the tool 
@@ -154,10 +153,10 @@ brew install mysql-client
 brew install mysql
 ```
 
-4. Download files: Download the binary and config file, using the gsutil command below -
+4. Clone the git repo: Clone the Cloud SQL Upgrade Repo and download the binary and config file, using the command below -
 
 ```
-gsutil -m cp -r gs://cloudsqlupgrade/binaries/mysql . && cd mysql
+git clone https://github.com/GoogleCloudPlatform/cloudsql-upgrade.git
 ```
 
 5. Setup gcloud auth login: To execute gcloud commands, setup the auth login and project_id -

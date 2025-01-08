@@ -90,8 +90,7 @@ upgrade, Alter OID scripts.
 ## 3. Prerequisites
 
 ### 3.1 Important highlights of the Tool
-* The tool runs on the following OS versions Debian 11, MacOS.
-* Reach out to your Google account teams for access to the binary file
+* The tool runs on the following OS versions Debian 11 & above, MacOS 15 & above.
 * To ensure that the tool can run sanity checks for you, verify that the server where it is being deployed has access to your PostgreSQL instance.
 
 ### 3.2 Complete information to run the tool
@@ -129,10 +128,11 @@ SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER
 sudo apt-get install wkhtmltopdf
 ```
 
-2. Download files: Download the binary and config file, using the gsutil command below -
+2. Clone the git repo: Clone the Cloud SQL Upgrade Repo and download the binary and config file, using the command below -
 
 ```
-gsutil -m cp -r gs://cloudsqlupgrade/binaries/postgresql . && cd postgresql
+git clone https://github.com/GoogleCloudPlatform/cloudsql-upgrade.git
+```
 ```
 
 3. Setup gcloud auth login: To execute gcloud commands, setup the auth login and project_id -
