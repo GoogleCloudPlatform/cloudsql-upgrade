@@ -133,7 +133,6 @@ sudo apt-get install wkhtmltopdf
 ```
 git clone https://github.com/GoogleCloudPlatform/cloudsql-upgrade.git
 ```
-```
 
 3. Setup gcloud auth login: To execute gcloud commands, setup the auth login and project_id -
 
@@ -202,7 +201,6 @@ chmod +x cloudsql_upgrade
 
 ```
 ./cloudsql_upgrade
-[INFO]
 Incase you get this warning while trying to run the binary -
 “MAC_binaries_postgresql_cloudsql_upgrade” cannot be opened because it is from an unidentified developer.
 ```
