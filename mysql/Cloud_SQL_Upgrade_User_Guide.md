@@ -140,7 +140,7 @@ Note: For other OS refer to [this](https://dev.mysql.com/downloads/shell/) page 
 3. Download MySQL Client - Install MySQL Client using the following command -
 
 ```
-For linux -
+For Linux -
 sudo apt-get update
 sudo apt-get install default-mysql-client
 If encountered issue "E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution)."
@@ -228,13 +228,21 @@ https://cloud.google.com/sql/docs/mysql/instance-settings#machine-type-2ndgen
 9.1. Add the execution permission to binary file:
 
 ```
-chmod +x cloudsql_upgrade
+For Linux - 
+chmod +x mysql_binary_linux.linux_x64_v2
+
+For Mac - 
+chmod +x mysql_binary_mac
 ```
 
 9.2. Run the binary file:
 
 ```
-./cloudsql_upgrade
+For Linux - 
+./mysql_binary_linux.linux_x64_v2
+
+For Mac -
+mysql_binary_mac
 ```
 
 9.3. Verify logs generated at :
