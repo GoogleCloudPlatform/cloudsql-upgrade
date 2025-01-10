@@ -125,14 +125,17 @@ SELECT, INSERT, UPDATE, DELETE, TRUNCATE, REFERENCES, TRIGGER
 1.  Install Wkhtmltopdf package: Install the wkhtmltopdf package using the following command -
 
 ```
+For linux -
 sudo apt-get install wkhtmltopdf
+
+For Mac -
+brew install wkhtmltopdf
 ```
 
 2. Clone the git repo: Clone the Cloud SQL Upgrade Repo and download the binary and config file, using the command below -
 
 ```
 git clone https://github.com/GoogleCloudPlatform/cloudsql-upgrade.git
-```
 ```
 
 3. Setup gcloud auth login: To execute gcloud commands, setup the auth login and project_id -
@@ -195,16 +198,23 @@ https://cloud.google.com/sql/docs/postgres/instance-settings#:~:text=db%2Dperf%2
 6.1. Add the execution permission to binary file:
 
 ```
-chmod +x cloudsql_upgrade
+For linux - 
+chmod +x postgresql_binary_linux
+
+For Mac - 
+chmod +x postgresql_binary_mac
 ```
 
 6.2. Run the binary file:
 
 ```
-./cloudsql_upgrade
-[INFO]
-Incase you get this warning while trying to run the binary -
-“MAC_binaries_postgresql_cloudsql_upgrade” cannot be opened because it is from an unidentified developer.
+For linux - 
+./postgresql_binary_linux
+
+For Mac - 
+./postgresql_binary_mac
+You might get this warning while trying to run the binary -
+“postgresql_binary_mac” cannot be opened because it is from an unidentified developer.
 ```
 
 6.3. Verify logs generated at :

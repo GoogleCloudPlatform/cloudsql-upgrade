@@ -20,7 +20,7 @@ limitations under the License. -->
 
 Upgrading to a newer major version of a database can be complex, time-consuming and error-prone. At Google Cloud, we want to make sure that your database upgrades go smoothly, without compromising the security or availability of your applications. We also aim to minimize the risks and disruptions associated with upgrades, to save you time and resources.
 
-As a fully-managed database service, Cloud SQL supports multiple major versions of MySQL and PostgreSQL, each of which introduces performance improvements, security enhancements and expanded feature sets. Today, we’re excited to announce an automated Cloud SQL upgrade tool for major versions and Enterprise Plus, available for MySQL 5.7 to 8.0.31, and PostgreSQL 9.6, 10, and 11 to PostgreSQL 14 and 15. The tool provides automated upgrade assessments, scripts to resolve issues and in-place major version upgrades, as well as Enterprise Plus edition upgrades, all in one go. 
+As a fully-managed database service, Cloud SQL supports multiple major versions of MySQL and PostgreSQL, each of which introduces performance improvements, security enhancements and expanded feature sets. Today, we’re excited to announce an automated Cloud SQL upgrade tool for major versions and Enterprise Plus, available for MySQL 5.7 to 8.0.31, and PostgreSQL 9.6, 10, 11 and 12 to PostgreSQL 14 and 15. The tool provides automated upgrade assessments, scripts to resolve issues and in-place major version upgrades, as well as Enterprise Plus edition upgrades, all in one go. 
 
 It’s particularly useful for organizations that want to avoid extended support fees associated with Cloud SQL extended support for MySQL and PostgreSQL end-of-life versions, or that want to take advantage of the performance and availability features of Enterprise Plus editions.
 
@@ -57,3 +57,5 @@ Upgrading an instance with the Cloud SQL upgrade tool is straightforward:
 6. Run tests on the upgraded instance to verify that the application functions correctly. 
 
 7. Upon successful testing, execute automated fix scripts and any necessary manual fixes on the production instance, run the assessment, verify the report, and finally, initiate in-place major version upgrade. 
+
+##### Note - The checksums for binaries are generated using SHA512 
