@@ -24,6 +24,9 @@ As a fully-managed database service, Cloud SQL supports multiple major versions 
 
 It’s particularly useful for organizations that want to avoid extended support fees associated with Cloud SQL extended support for MySQL and PostgreSQL end-of-life versions, or that want to take advantage of the performance and availability features of Enterprise Plus editions.
 
+## Architecture Diagram
+<img width="1600" height="703" alt="image" src="https://github.com/user-attachments/assets/c4542a63-d34d-472f-8cb8-fb94bf5e641a" />
+
 
 ## Key features 
 The Cloud SQL upgrade tool provides: 
